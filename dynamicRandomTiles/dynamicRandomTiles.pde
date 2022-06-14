@@ -25,7 +25,7 @@ color[] colorSets = {#003049, #d62828, #f77f00, #fcbf49, #eae2b7,
                     #beaf5f, #968c41, #6e6437, #2d2d1e, #4b281e,
                     #284655, #289b91, #ebc369, #f5a05f, #e66e50};
 
-int imageNum = 4;
+int imageNum = 1;
 ArrayList<HRect> cubes = new ArrayList<HRect>();
 
 void setup() {
@@ -35,7 +35,7 @@ void setup() {
 }
 
 void draw() {
-    if (imageNum <= 10){
+    if (imageNum <= 4){
         // Creating the cubes
         int [] scale = {width/12, height/12};
         int [] maxSize = {2, 2};
