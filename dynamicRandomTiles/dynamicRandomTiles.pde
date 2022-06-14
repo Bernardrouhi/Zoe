@@ -29,13 +29,13 @@ int imageNum = 1;
 ArrayList<HRect> cubes = new ArrayList<HRect>();
 
 void setup() {
-    size(8192, 8192);
+    size(4096, 4096);
     H.init(this);
     smooth();
 }
 
 void draw() {
-    if (imageNum <= 4){
+    if (imageNum <= 10){
         // Creating the cubes
         int [] scale = {width/12, height/12};
         int [] maxSize = {2, 2};
@@ -73,17 +73,28 @@ void draw() {
         }
         H.drawStage();
         // Save to file
-        String nDiffuse  = String.format("T_RandomTile%03d_BaseColor_8k",imageNum);
+        String nDiffuse  = String.format("T_RandomTile%03d_BaseColor_4k",imageNum);
         save(String.format("%s.tga",nDiffuse)); 
 
         // RMA
         for (HRect cube : cubes) {
-            cube.fill(color(random(255),random(255),0));
+            cube.fill(color(random(255),random(255),0))
+                .stroke(#000000, 80);
         }
         H.drawStage();
         // Save to file
-        String nRMA = String.format("T_RandomTile%03d_RMA_8k",imageNum);
+        String nRMA = String.format("T_RandomTile%03d_RMA_4k",imageNum);
         save(String.format("%s.tga",nRMA)); 
+
+        // Normal
+        for (HRect cube : cubes) {
+            cube.fill(#8082f7)
+                .stroke(#000000, 0);
+        }
+        H.drawStage();
+        // Save to file
+        String nNormal = String.format("T_RandomTile%03d_Normal_4k",imageNum);
+        save(String.format("%s.tga",nNormal)); 
 
         ++imageNum;
 
