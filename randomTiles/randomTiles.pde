@@ -1,3 +1,4 @@
+int imageNum = 1;
 void setup() {
     color [] colors = {#003049, #d62828, #f77f00, #fcbf49, #eae2b7};
     // color [] colors = {#264653, #2a9d8f, #e9c46a, #f4a261, #e76f51};
@@ -39,6 +40,6 @@ void setup() {
         }
     }
     // Save to file
-    String fileName = "T_RandomeTile_001_4K_D";
+    String fileName = String.format("T_RandomeTile%02d_BaseColor_4K",imageNum);
     save(String.format("%s.tga",fileName)); 
 }
