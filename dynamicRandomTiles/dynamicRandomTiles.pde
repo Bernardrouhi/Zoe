@@ -35,7 +35,7 @@ void setup() {
 }
 
 void draw() {
-    if (imageNum <= 10){
+    if (imageNum <= 100){
         // Creating the cubes
         int [] scale = {width/12, height/12};
         int [] maxSize = {2, 2};
@@ -66,15 +66,16 @@ void draw() {
             }
 
         }
-
-        // Diffuse 
+        
+        // Normal
         for (HRect cube : cubes) {
-            cube.fill(colorSets[int(random(((imageNum*5)%colorSets.length),(((imageNum*5)+4)%colorSets.length)))]);
+            cube.fill(#8082f7)
+                .stroke(#000000, 0);
         }
         H.drawStage();
         // Save to file
-        String nDiffuse  = String.format("T_RandomTile%03d_BaseColor_4k",imageNum);
-        save(String.format("%s.tga",nDiffuse)); 
+        String nNormal = String.format("T_RandomTile%03d_Normal_4k",imageNum);
+        save(String.format("%s.png",nNormal)); 
 
         // RMA
         for (HRect cube : cubes) {
@@ -84,17 +85,16 @@ void draw() {
         H.drawStage();
         // Save to file
         String nRMA = String.format("T_RandomTile%03d_RMA_4k",imageNum);
-        save(String.format("%s.tga",nRMA)); 
+        save(String.format("%s.png",nRMA)); 
 
-        // Normal
+        // Diffuse 
         for (HRect cube : cubes) {
-            cube.fill(#8082f7)
-                .stroke(#000000, 0);
+            cube.fill(colorSets[int(random(((imageNum*5)%colorSets.length),(((imageNum*5)+4)%colorSets.length)))]);
         }
         H.drawStage();
         // Save to file
-        String nNormal = String.format("T_RandomTile%03d_Normal_4k",imageNum);
-        save(String.format("%s.tga",nNormal)); 
+        String nDiffuse  = String.format("T_RandomTile%03d_BaseColor_4k",imageNum);
+        save(String.format("%s.png",nDiffuse)); 
 
         ++imageNum;
 
